@@ -85,3 +85,10 @@ fullscreen.addEventListener('click', () => {
     document.documentElement.requestFullscreen();
   }
 });
+
+
+const selectors = {
+  mainMenu: document.querySelector("#main-menu")
+}
+
+selectors.mainMenu.style.display = "none"
