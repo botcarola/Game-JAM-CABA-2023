@@ -69,7 +69,15 @@ body {
     color: rgba(194, 146, 253, 0.822);
 }
 
+.pantalla-completa{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
 
+.window{
+    flex: 3;
+}
 
 .configuracion {
     display: none;
