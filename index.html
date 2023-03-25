@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Jueguito</title>
     <link rel="stylesheet" href="main.css">
-  </head>
-  <body>
+</head>
+<body>
 <!-- Cursor -->
 <div id="cursor__container" class="cursor__container">
 	<div id="cursor" class="cursor"></div>
 </div>
 
-<div class="inicio">
+    <div class="inicio">
     <audio class="audio" src="audio.mp3" type="audio/mp3" autoplay="" loop="" controls="" preload="auto"></audio>
-      <h1 class="title">Jueguito</h1>
-      <div class="buttons">
+        <h1 class="title">Jueguito</h1>
+        <div class="buttons">
         <button class="button start">Empezar partida</button>
         <button class="button continue">Continuar</button>
         <div class="pantalla-completa">
@@ -22,36 +22,86 @@
             <button class="button window">Pantalla</button>
         </div>
         <button class="button exit">Salir</button>
-      </div>
+    </div>
+    </div>
+    <div class="empleadas" style="display: none;">
+        <div class="empleada">
+            <span class="name">Nombre: </span>
+            <span class="status">Estado: </span>
+            <img src="white.png" alt="empleada" class="profile">
+            <span class="atributes-1">Furioso</span>
+            <span class="atributes-2">Paciente</span>
+            <span class="atributes-3">Escepticista</span>
+            <span class="atributes-4">Empático</span>
+            <p class="description">Descripción de su problema</p>
+            <button class="button get-1">Tomar caso</button>
+        </div>
+        <div class="empleada">
+            <span class="name">Nombre: </span>
+            <span class="status">Estado: </span>
+            <img src="white.png" alt="empleada" class="profile">
+            <span class="atributes-1">Furioso</span>
+            <span class="atributes-2">Paciente</span>
+            <span class="atributes-3">Escepticista</span>
+            <span class="atributes-4">Empático</span>
+            <p class="description">Descripción de su problema</p>
+            <button class="button get-2">Tomar caso</button>
+        </div>
+        <div class="empleada">
+            <span class="name">Nombre: </span>
+            <span class="status">Estado: </span>
+            <img src="white.png" alt="empleada" class="profile">
+            <span class="atributes-1">Furioso</span>
+            <span class="atributes-2">Paciente</span>
+            <span class="atributes-3">Escepticista</span>
+            <span class="atributes-4">Empático</span>
+            <p class="description">Descripción de su problema</p>
+            <button class="button get-3">Tomar caso</button>
+        </div>
+    </div>
+
+    <div class="novela">
+        <div class="img-empleadas">
+            <img src="people.png" alt="Empleada 1">
+            <img src="people.png" alt="Empleada 2">
+        </div>
+        <div class="dialogo__container">
+            <span class="dialogo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolores natus dicta?</span>
+            <div class="buttons-config">
+                <button class="button settings">Configuración</button>
+                <button class="button settings">Configuración</button>
+                <button class="button settings">Configuración</button>
+            </div>
+        </div>
     </div>
 
     <div class="configuracion">
         <h2>Configuración</h2>
         <form class="form-config">
-          <h3>Opciones de sonido</h3>
-          <label>
+            <h3>Opciones de sonido</h3>
+            <label>
             <input class="mute" type="checkbox" name="sonido">
             Desactivar sonido
-          </label>
-          <label>
+            </label>
+            <label>
             <input class="vol-master" type="range" id="volumen" min="0" max="1" step="0.01" value="1">
             Volumen maestro
-          </label>
-          <h3>Opciones de idioma</h3>
-          <label>
+            </label>
+            <h3>Opciones de idioma</h3>
+            <label>
             <input type="radio" name="idioma" value="es" checked>
             Español
-          </label>
-          <label>
+            </label>
+            <label>
             <input type="radio" name="idioma" value="en">
             Inglés
-          </label>
-          <div class="buttons-config">
-            <input class="button save" type="submit" value="Guardar">
-            <button class="button back">Volver</button>
-          </div>
+            </label>
+            <div class="buttons-config">
+                <input class="button save" type="submit" value="Guardar">
+                <button class="button back">Volver</button>
+            </div>
         </form>
-      </div>
-  </body>
-  <script type="text/JavaScript" src="main.js"></script>
+    </div>
+</body>
+<script type="text/JavaScript" src="main.js"></script>
 </html>

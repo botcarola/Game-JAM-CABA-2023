@@ -7,16 +7,19 @@ document.querySelector('.exit').addEventListener('click', function() {
 });
 
 // Config.
-const settings = document.querySelector('.settings');
+const settings = document.querySelectorAll('.settings');
 const back = document.querySelector('.back');
 
 const inicio = document.querySelector('.inicio');
 const configuracion = document.querySelector('.configuracion');
 
-settings.addEventListener('click', () => {
-  inicio.style.display = 'none';
-  configuracion.style.display = 'block';
+settings.forEach(setting => {
+    setting.addEventListener('click', () => {
+    inicio.style.display = 'none';
+    configuracion.style.display = 'block';
+    });
 });
+
 
 back.addEventListener('click', () => {
     inicio.style.display = 'flex';
@@ -48,26 +51,26 @@ save.addEventListener('click', () => {
 
 window.addEventListener('beforeunload', () => {
     if (!save.clicked) {
-      audio.pause();
-      localStorage.setItem('audioCurrentTime', audio.currentTime);
+    audio.pause();
+    localStorage.setItem('audioCurrentTime', audio.currentTime);
     }
-  });
-  
-  if (localStorage.getItem('audioCurrentTime')) {
+});
+
+if (localStorage.getItem('audioCurrentTime')) {
     audio.currentTime = localStorage.getItem('audioCurrentTime');
-  }
-  
+}
+
 volumen.addEventListener('input', () => {
     if (!mute.checked) {
-      audio.volume = volumen.value;
+    audio.volume = volumen.value;
     }
 });
     
 mute.addEventListener('change', () => {
     if (mute.checked) {
-      audio.volume = 0;
+    audio.volume = 0;
     } else {
-      audio.volume = volumen.value;
+    audio.volume = volumen.value;
     }
 });
 
@@ -79,9 +82,9 @@ audio.play();
 const fullscreen = document.querySelector('.window');
 
 fullscreen.addEventListener('click', () => {
-  if (document.fullscreenElement) {
+if (document.fullscreenElement) {
     document.exitFullscreen();
-  } else {
+} else {
     document.documentElement.requestFullscreen();
-  }
+}
 });
