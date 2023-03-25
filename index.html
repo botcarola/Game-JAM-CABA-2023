@@ -2,106 +2,118 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Jueguito</title>
-    <link rel="stylesheet" href="main.css">
+
+    <link rel="stylesheet" href="main.css">    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/98mprice/PSone.css@master/PSone.min.css">
 </head>
 <body>
-<!-- Cursor -->
-<div id="cursor__container" class="cursor__container">
-	<div id="cursor" class="cursor"></div>
-</div>
+    <div id="main-menu">              
+        <!-- Cursor -->
 
-    <div class="inicio">
-    <audio class="audio" src="audio.mp3" type="audio/mp3" autoplay="" loop="" controls="" preload="auto"></audio>
-        <h1 class="title">Jueguito</h1>
-        <div class="buttons">
-        <button class="button start">Empezar partida</button>
-        <button class="button continue">Continuar</button>
-        <div class="pantalla-completa">
-            <button class="button settings">Configuración</button>
-            <button class="button window">Pantalla</button>
+        <div class="inicio">
+            <audio class="audio" src="audio.mp3" type="audio/mp3" autoplay="" loop="" controls="" preload="auto"></audio>
+            <h1 class="title">Jueguito</h1>
+            <div class="buttons">
+                <button class="button start">Empezar partida</button>
+                <button class="button continue">Continuar</button>
+                <div class="pantalla-completa">
+                    <button class="button settings">Configuración</button>
+                    <button class="button window">Pantalla</button>
+                </div>
+                <button class="button exit">Salir</button>
+            </div>
         </div>
-        <button class="button exit">Salir</button>
-    </div>
-    </div>
-    <div class="empleadas" style="display: none;">
-        <div class="empleada">
-            <span class="name">Nombre: </span>
-            <span class="status">Estado: </span>
-            <img src="white.png" alt="empleada" class="profile">
-            <span class="atributes-1">Furioso</span>
-            <span class="atributes-2">Paciente</span>
-            <span class="atributes-3">Escepticista</span>
-            <span class="atributes-4">Empático</span>
-            <p class="description">Descripción de su problema</p>
-            <button class="button get-1">Tomar caso</button>
-        </div>
-        <div class="empleada">
-            <span class="name">Nombre: </span>
-            <span class="status">Estado: </span>
-            <img src="white.png" alt="empleada" class="profile">
-            <span class="atributes-1">Furioso</span>
-            <span class="atributes-2">Paciente</span>
-            <span class="atributes-3">Escepticista</span>
-            <span class="atributes-4">Empático</span>
-            <p class="description">Descripción de su problema</p>
-            <button class="button get-2">Tomar caso</button>
-        </div>
-        <div class="empleada">
-            <span class="name">Nombre: </span>
-            <span class="status">Estado: </span>
-            <img src="white.png" alt="empleada" class="profile">
-            <span class="atributes-1">Furioso</span>
-            <span class="atributes-2">Paciente</span>
-            <span class="atributes-3">Escepticista</span>
-            <span class="atributes-4">Empático</span>
-            <p class="description">Descripción de su problema</p>
-            <button class="button get-3">Tomar caso</button>
-        </div>
-    </div>
 
-    <div class="novela">
-        <div class="img-empleadas">
-            <img src="people.png" alt="Empleada 1">
-            <img src="people.png" alt="Empleada 2">
+        <!-- <div class="empleadas" style="display: none;">
+            <div class="empleada">
+                <span class="name">Nombre: </span>
+                <span class="status">Estado: </span>
+                <img src="white.png" alt="empleada" class="profile">
+                <span class="atributes-1">Furioso</span>
+                <span class="atributes-2">Paciente</span>
+                <span class="atributes-3">Escepticista</span>
+                <span class="atributes-4">Empático</span>
+                <p class="description">Descripción de su problema</p>
+                <button class="button get-1">Tomar caso</button>
+            </div>
+            <div class="empleada">
+                <span class="name">Nombre: </span>
+                <span class="status">Estado: </span>
+                <img src="white.png" alt="empleada" class="profile">
+                <span class="atributes-1">Furioso</span>
+                <span class="atributes-2">Paciente</span>
+                <span class="atributes-3">Escepticista</span>
+                <span class="atributes-4">Empático</span>
+                <p class="description">Descripción de su problema</p>
+                <button class="button get-2">Tomar caso</button>
+            </div>
+            <div class="empleada">
+                <span class="name">Nombre: </span>
+                <span class="status">Estado: </span>
+                <img src="white.png" alt="empleada" class="profile">
+                <span class="atributes-1">Furioso</span>
+                <span class="atributes-2">Paciente</span>
+                <span class="atributes-3">Escepticista</span>
+                <span class="atributes-4">Empático</span>
+                <p class="description">Descripción de su problema</p>
+                <button class="button get-3">Tomar caso</button>
+            </div>
+        </div> -->
+
+        <div class="novela">
+            <div class="img-empleadas">
+                <img src="people.png" alt="Empleada 1">
+                <img src="people.png" alt="Empleada 2">
+            </div>
+            
+            <div class="dialogo__container">
+                <div class="name-empleada"><span>Ana María</span></div>
+                <p class="dialogo"></span>
+                <div class="buttons-config">
+                    <button class="min-button anterior">Anterior</button>
+                    <button class="min-button siguiente">Siguiente</button>
+                    <button class="min-button settings">Configuración</button>
+                </div>
+            </div>
         </div>
-        <div class="dialogo__container">
-            <span class="dialogo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolores natus dicta?</span>
-            <div class="buttons-config">
-                <button class="button settings">Configuración</button>
-                <button class="button settings">Configuración</button>
-                <button class="button settings">Configuración</button>
+
+        <div class="configuracion">
+            <h2 class="title-2">Configuración</h2>
+            <form class="form-config">
+                <h3 class="title-3">Opciones de sonido</h3>
+                <label class="label">
+                    <input class="mute" type="checkbox" name="sonido">
+                    Desactivar sonido
+                </label>
+                <label class="label">
+                    <input class="vol-master" type="range" id="volumen" min="0" max="1" step="0.01" value="1">
+                    Volumen maestro
+                </label>
+                <h3 class="title-3">Opciones de idioma</h3>
+                <label class="label">
+                    <input type="radio" name="idioma" value="es" checked>
+                    Español
+                </label>
+                <label class="label">
+                    <input type="radio" name="idioma" value="en">
+                    Inglés
+                </label>
+                <div class="buttons-config">
+                    <input class="button save" type="submit" value="Guardar">
+                    <button class="button back">Volver</button>
+                </div>
+            </form>
+        </div>
+        <div id="table">
+            <div class="container">
+                <span>sañldkñsladk</span>
             </div>
         </div>
     </div>
-
-    <div class="configuracion">
-        <h2>Configuración</h2>
-        <form class="form-config">
-            <h3>Opciones de sonido</h3>
-            <label>
-            <input class="mute" type="checkbox" name="sonido">
-            Desactivar sonido
-            </label>
-            <label>
-            <input class="vol-master" type="range" id="volumen" min="0" max="1" step="0.01" value="1">
-            Volumen maestro
-            </label>
-            <h3>Opciones de idioma</h3>
-            <label>
-            <input type="radio" name="idioma" value="es" checked>
-            Español
-            </label>
-            <label>
-            <input type="radio" name="idioma" value="en">
-            Inglés
-            </label>
-            <div class="buttons-config">
-                <input class="button save" type="submit" value="Guardar">
-                <button class="button back">Volver</button>
-            </div>
-        </form>
-    </div>
+    <script src="main.js"></script>
 </body>
-<script type="text/JavaScript" src="main.js"></script>
 </html>

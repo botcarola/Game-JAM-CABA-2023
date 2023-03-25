@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500&family=Poppins:wght@400;500&family=Quicksand:wght@600;700&family=Roboto:wght@100&family=Ubuntu&display=swap');
 :root{
     --bg-color: rgba(209, 163, 252, 0.8);
-    --container-color: rgba(183, 115, 247, 0.932); 
+    --container-color: rgba(183, 115, 247, 0.932);
+    --container-two-color: rgba(75, 44, 104, 0.932);
     --border-color: rgba(151, 47, 248, 0.932);
 }
 
@@ -17,18 +18,45 @@
     background-color: rgba(129,56,221, .3);
 }
 
-body {
+body::before {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: url('fondo.png');
+    background-position: center center;
+    background-size: cover;
+    filter: blur(0px);
+    z-index: -10;
+}
+
+.title-2{
+    font-size: 2.3rem;
+}
+
+.title-3{
+    font-size: 1.5rem;
+}
+
+.label{
+    font-size: 1rem;
+}
+
+#main-menu {
     display: flex;
     align-items: center;
     /* justify-content: end; */
     justify-content: center;
     height: 100vh;
     padding: 100px;
+}
 
-    background-image: url('fondo.png');
-    background-position: center center;
-    background-size: cover;
-    
+#table {
+    position: absolute;
+    display: none;
 }
 
 /* Pantalla inicial */
@@ -44,6 +72,7 @@ body {
 
 .title {
     font-size: 3rem;
+    margin: 0;
     padding-bottom: 15px;
 }
 
@@ -56,14 +85,26 @@ body {
 
 .buttons-config{
     display: flex;
-    align-items: center;
+    align-items: end;
     gap: 1rem;
+}
+
+.min-button {
+    padding: .3rem 1.6rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #666666bb;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .button {
     width: 100%;
     min-width: 140px;
-    padding: 1rem 2rem;
+    max-width: 1904px;
+    padding: .5rem 2rem;
     font-size: 1.5rem;
     border: none;
     border-radius: 0.5rem;
@@ -73,7 +114,7 @@ body {
     transition: all 0.3s ease;
 }
 
-.button:hover {
+.button:hover, .min-button:hover {
     transform: translateY(-5px);
     color: rgba(194, 146, 253, 0.822);
 }
@@ -96,7 +137,6 @@ body {
 /* Pantalla config */
 .configuracion {
     display: none;
-    
     padding: 2rem;
     background-color: var(--bg-color);
 }
@@ -184,6 +224,14 @@ body {
 .img-empleadas{
     display: flex;
     gap: 6rem;
+}
+
+.name-empleada{
+    position: absolute;
+    top: -45px;
+    padding: 1rem;
+    border: 4px solid var(--border-color);
+    background-color: var(--container-two-color);
 }
 
 .dialogo__container{
