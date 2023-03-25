@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Jueguito</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+<!-- Cursor -->
+<div id="cursor__container" class="cursor__container">
+	<div id="cursor" class="cursor"></div>
+</div>
+
+<div class="inicio">
+    <audio class="audio" src="audio.mp3" type="audio/mp3" autoplay="" loop="" controls="" preload="auto"></audio>
+      <h1 class="title">Jueguito</h1>
+      <div class="buttons">
+        <button class="button start">Empezar partida</button>
+        <button class="button continue">Continuar</button>
+        <button class="button settings">Configuración</button>
+        <button class="button exit">Salir</button>
+      </div>
+    </div>
+
+    <div class="configuracion">
+        <h2>Configuración</h2>
+        <form class="form-config">
+          <h3>Opciones de sonido</h3>
+          <label>
+            <input class="mute" type="checkbox" name="sonido">
+            Desactivar sonido
+          </label>
+          <label>
+            <input class="vol-master" type="range" id="volumen" min="0" max="1" step="0.01" value="1">
+            Volumen maestro
+          </label>
+          <h3>Opciones de idioma</h3>
+          <label>
+            <input type="radio" name="idioma" value="es" checked>
+            Español
+          </label>
+          <label>
+            <input type="radio" name="idioma" value="en">
+            Inglés
+          </label>
+          <div class="buttons-config">
+            <input class="button save" type="submit" value="Guardar">
+            <button class="button back">Volver</button>
+          </div>
+        </form>
+      </div>
+  </body>
+  <script type="text/JavaScript" src="main.js"></script>
+</html>
