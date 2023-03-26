@@ -15,7 +15,7 @@
             }
         ],
         "fase": 1,
-        "avatar": "../avatares/anamaria2.jpg",
+        "avatar": "/../assets/avatares/anamaria2.jpg",
         "escena_1": {},
         "escena_2": {},
         "escena_3": {}        
@@ -36,7 +36,7 @@
             }
         ],
         "fase": 1,
-        "avatar": "../avatares/anamaria2.jpg",
+        "avatar": "/../assets/avatares/aylen1.jpg",
         "escena_1": {},
         "escena_2": {},
         "escena_3": {}        
@@ -45,7 +45,7 @@
         "id": 2,
         "nombre": "Isabella",   
         "edad": 30,           
-        "descripcion": "CONTADORA CON QUINCE AÑOS DE EXPERIENCIA. Comenzó y perpetuó su vida laboral en el negocio familiar. Hoy a sus treinta, ya no da más, quiere independencia a toda costa.",
+        "descripcion": "CONTADORA CON QUINCE AÑOS DE EXPERIENCIA. Sumamente tensa y racional. Comenzó y perpetuó su vida laboral en el negocio familiar. Hoy a sus treinta, ya no da más, quiere independencia a toda costa.",
         "atributos": [
             {
                 "tipo": "Paciencia",
@@ -53,7 +53,7 @@
             }           
         ],
         "fase": 1,
-        "avatar": "../avatares/anamaria2.jpg",
+        "avatar": "/../assets/avatares/isabellaprototipo01.jpg",
         "escena_1": {},
         "escena_2": {},
         "escena_3": {}        
@@ -69,7 +69,7 @@
             }            
         ],
         "fase": 1,
-        "avatar": "../avatares/anamaria2.jpg",
+        "avatar": "/../assets/avatares/veronica2.jpg",
         "escena_1": {},
         "escena_2": {},
         "escena_3": {}        
@@ -94,7 +94,7 @@
             }
         ],
         "fase": 1,
-        "avatar": "../avatares/anamaria2.jpg",
+        "avatar": "/../assets/avatares/silvia1.jpg",
         "escena_1": {},
         "escena_2": {},
         "escena_3": {}        

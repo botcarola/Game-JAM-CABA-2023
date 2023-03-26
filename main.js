@@ -86,16 +86,35 @@ fullscreen.addEventListener('click', () => {
 
 
 const contenedores = {
-  mainMenu: document.querySelector("#main-menu")
+  mainMenu: document.querySelector("#main-menu"),
+  notificaciones: document.querySelector(".notificaciones")
 }
 
 const interfazTablas = {
   carouselEmpleadas: document.querySelector("#cards-em"),
   descripcionEmpleadas: document.querySelector("#descripcion-empleadas")
 }
-
-console.log(interfazTablas)
 contenedores.mainMenu.style.display = "none"
+
+// NOTIFICACIONES
+
+const notificacion = () => {
+  const dialogo = `
+      <div class="notificacion">
+          <div class="notificacion-img">
+              <img src="./assets/avatares/aylen1.jpg" alt="chat con aylen">
+          </div>
+          <p>
+              ¡Hola, bienvenida a la oficina! Hoy tenemos un par de casos interesantes.
+          </p>
+      </div>
+  `
+  contenedores.notificaciones.innerHTML = dialogo
+}
+
+notificacion()
+
+// TABLA EMPLEADAS
 
 const swiper = new Swiper(".mySwiper", {
   effect: "cards",
@@ -113,7 +132,7 @@ const cardsAHtml = ( data ) => {
         return acc + `
             <div class="swiper-slide card-empleada" id="empleada-${ value.id }">
                 <div class="container-img">
-                    <img class="img-empleada" src="./assets/avatares/anamaria2.jpg" alt="avatar de ${ value.nombre }">
+                    <img class="img-empleada" src=${ value.avatar } alt="avatar de ${ value.nombre }">
                 </div>                
                 <h2>
                     ${ value.nombre }
@@ -130,25 +149,34 @@ const descripcionAHtml = ( data ) => {
             <h2>
                 Descripción:
             <h2>
-            <p>
+            <p class="descripcion-texto">
                 ${ data.descripcion }
             </p>
             <div class="atributos-empleada">
                 <h2>
-                    Atributo:
+                    Atributo: ${ data.atributos[0].tipo }
                 <h2>
-                ${ data.atributos[0].tipo }
             </div>
         </div>
     `   
 }
 
-const descripcionVacia = () => {
+const descripcionVacia = ( ) => {
   return `
+  <div class="info-empleada">
       <h2>
-          ñlsakdñlakdñlakdñlaskd
-      </h2>
-  `
+          Descripción:
+      <h2>
+      <p class="descripcion-texto">
+          Dedicó gran parte de su vida a su familia y al trabajo doméstico. Actualmente se encuentra en el segundo año de la carrera Psicología. Busca acceder a un trabajo formal, su deseo es poder proveerse a sí misma y a su familia.
+      </p>
+      <div class="atributos-empleada">
+          <h2>
+              Atributo: Paciencia
+          <h2>          
+      </div>
+  </div>
+`  
 }
 
 interfazTablas.descripcionEmpleadas.innerHTML = descripcionVacia()

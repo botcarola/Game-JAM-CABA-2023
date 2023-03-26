@@ -203,6 +203,15 @@ body {
     cursor: none !important;
 } */
 
+/* TUTORIAL */
+
+.ayuda {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 25px;    
+}
+
 /* INTERFAZ TABLAS */
 
 #interfaz-tablas {
@@ -213,7 +222,6 @@ body {
 .container-ayuda {
     display: flex;
     justify-content: flex-end;  
-    margin-bottom: 20px;
 }
 
 .tablas {
@@ -228,18 +236,25 @@ body {
     width: 40%;
     border: 1px solid black;   
     border-radius: 5px; 
-    height: 700px;
+    height: 650px;
     margin: 5px;    
     background: rgba(234, 0, 255, 0.47);
     background: -webkit-radial-gradient(circle, rgba(234, 0, 255, 0.47) 0%, rgba(234, 0, 255, 0.39) 100%);
     background: radial-gradient(circle, rgba(234, 0, 255, 0.47) 0%, rgba(234, 0, 255, 0.39) 100%);
 }
 
-.ayuda {
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
-    border-radius: 25px;    
+.descripcion-texto {
+    font-size: 25px;
+}
+
+#descripcion-empleadas {
+    width: 80%;
+    height: 250px;
+    background-color: white;
+    margin-top: 20px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 /* estilos carrousel*/
@@ -263,8 +278,8 @@ body {
 }
 
 .swiper {
-    width: 240px;
-    height: 320px;
+    width: 200px;
+    height: 300px;
     margin-top: 40px;
 }
 
@@ -294,11 +309,40 @@ body {
     border-radius: 10px;
 }
 
-#descripcion-empleadas {
-    width: 80%;
-    height: 250px;
+/* CONTAINER NOTIFICACIONES */
+
+.container-notificaciones {
+    display: flex;
+    justify-content: center;    
+    margin-bottom: 50px;
+}
+
+.notificaciones {
+    width: 800px;
+    height: 150px;    
     background-color: white;
-    margin-top: 20px;
-    border: 1px solid grey;
-    border-radius: 15px;
+    border-radius: 10px; 
+    display: flex;
+    justify-content: center;  
+    font-size: 20px; 
+}
+
+.notificacion-img {
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgba(130, 129, 129, 0.471);
+    border-radius: 140px;
+    overflow: hidden;    
+    margin: 15px;    
+}
+
+.notificacion-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.notificacion {
+    display: flex;
+    align-items: center;     
 }
