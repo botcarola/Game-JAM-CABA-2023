@@ -1,37 +1,67 @@
-
-// Salir
-document.querySelector('.exit').addEventListener('click', function() {
-    if (confirm("¿Está seguro de que desea salir?")) {
-        window.close();
-    }
-});
-
-// Config.
+// Botones Inicio
+const start = document.querySelector('.start');
+const load = document.querySelector('.load');
 const settings = document.querySelectorAll('.settings');
-const back = document.querySelector('.back');
+const fullscreen = document.querySelector('.window');
 
+
+// Botones configuración
+const mute = document.querySelector('.mute');
+const volumen = document.querySelector('#volumen');
+const save = document.querySelector('.save');
+const back = document.querySelector('.back');
+const exit = document.querySelector('.exit');
+
+// Elementos
+const audio = document.querySelector('.audio');
+
+// Pestañas
 const inicio = document.querySelector('.inicio');
 const configuracion = document.querySelector('.configuracion');
+const novela = document.querySelector('.novela');
+
+// Comprobar pestaña
+let ultimaPantalla = 'inicio';
+
+start.addEventListener('click', () => {
+    inicio.style.display = 'none';
+    novela.style.display = 'flex';
+
+    ultimaPantalla = 'novela';
+});
 
 settings.forEach(setting => {
     setting.addEventListener('click', () => {
     inicio.style.display = 'none';
+    novela.style.display = 'none';
     configuracion.style.display = 'block';
     });
 });
 
-back.addEventListener('click', () => {
-    inicio.style.display = 'flex';
-    configuracion.style.display = 'none';
+save.addEventListener('click', () => {
+    localStorage.setItem('mute', mute.checked);
+    localStorage.setItem('volumen', volumen.value);
 });
 
+back.addEventListener('click', () => {
+    inicio.style.display = 'none';
+    configuracion.style.display = 'none';
+    novela.style.display = 'flex';
+});
+
+// back.addEventListener('click', () => {
+//     if (ultimaPantalla === 'novela') {
+//         inicio.style.display = 'none';
+//         configuracion.style.display = 'none';
+//         novela.style.display = 'flex';
+//     } else {
+//         inicio.style.display = 'flex';
+//         configuracion.style.display = 'none';
+//         novela.style.display = 'none';
+//     }
+// });
+
 // Volumen
-const audio = document.querySelector('.audio');
-const volumen = document.querySelector('#volumen');
-const mute = document.querySelector('.mute');
-const save = document.querySelector('.save');
-
-
 if (localStorage.getItem('mute') === 'true') {
     mute.checked = true;
     audio.volume = 0;
@@ -41,10 +71,6 @@ if (localStorage.getItem('mute') === 'true') {
         volumen.value = localStorage.getItem('volumen') || 0.5;
 }
 
-save.addEventListener('click', () => {
-    localStorage.setItem('mute', mute.checked);
-    localStorage.setItem('volumen', volumen.value);
-});
 
 
 window.addEventListener('beforeunload', () => {
@@ -63,7 +89,7 @@ volumen.addEventListener('input', () => {
         audio.volume = volumen.value;
     }
 });
-    
+
 mute.addEventListener('change', () => {
     if (mute.checked) {
         audio.volume = 0;
@@ -74,11 +100,7 @@ mute.addEventListener('change', () => {
 
 audio.play();
 
-
-
-// Pantalla completa
-const fullscreen = document.querySelector('.window');
-
+// Fulscreen
 fullscreen.addEventListener('click', () => {
 if (document.fullscreenElement) {
     document.exitFullscreen();
@@ -87,32 +109,41 @@ if (document.fullscreenElement) {
     }
 });
 
-
-// const selectors = {
-//     mainMenu: document.querySelector("#main-menu")
-// }
-
-// selectors.mainMenu.style.display = "none";
+// Salir
+exit.addEventListener('click', () => {
+    if (confirm("¿Está seguro de que desea salir?")) {
+        window.close();
+    }
+});
 
 // Diálogos
-
 const dialogos = [
     {
         texto: 'Hola, ¿cómo estás?',
-        personaje: 'Ana'
+        personaje: 'Ana María',
+        imagen: 'woman.png'
+
     },
     {
         texto: 'Estoy bien, gracias. ¿Y vos?',
-        personaje: 'Juan'
+        personaje: 'Juan',
+        imagen: 'man.png'
+
     },
     {
         texto: 'Más o menos. Tuve un día complicado.',
-        personaje: 'Ana'
+        personaje: 'Ana María',
+        imagen: 'woman.png'
     }
 ];
 
 let indiceDialogo = 0;
+// Atributos personaje
+const imagenPersonaje = document.querySelector('.img');
+const nombrePersonaje = document.querySelector('.name-empleada');
 const textoDialogo = document.querySelector('.dialogo');
+
+// Botones
 const botonAvanzar = document.querySelector('.siguiente');
 const botonRetroceder = document.querySelector('.anterior');
 
@@ -131,21 +162,22 @@ function mostrarSiguienteDialogo() {
     if (indiceDialogo < dialogos.length) {
         const dialogo = dialogos[indiceDialogo];
         textoDialogo.textContent = '';
+        nombrePersonaje.textContent = dialogo.personaje;
+        imagenPersonaje.src = dialogo.imagen; // Agregar esta línea
         mostrarTexto(`${dialogo.personaje}: ${dialogo.texto}`);
         indiceDialogo++;
-        // Habilitar el botón de retroceso
         botonRetroceder.disabled = false;
     } else {
-        // Deshabilitar el botón de avanzar
         botonAvanzar.disabled = true;
     }
 }
-
 
 function mostrarDialogoAnterior() {
     if (indiceDialogo > 1) {
         indiceDialogo--;
         textoDialogo.textContent = '';
+        nombrePersonaje.textContent = dialogos[indiceDialogo - 1].personaje;
+        imagenPersonaje.src = dialogos[indiceDialogo - 1].imagen;
         mostrarTexto(`${dialogos[indiceDialogo - 1].personaje}: ${dialogos[indiceDialogo - 1].texto}`);
     }
 
