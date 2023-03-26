@@ -73,8 +73,6 @@ mute.addEventListener('change', () => {
 
 audio.play();
 
-
-
 // Pantalla completa
 const fullscreen = document.querySelector('.window');
 
@@ -87,8 +85,91 @@ fullscreen.addEventListener('click', () => {
 });
 
 
-const selectors = {
+const contenedores = {
   mainMenu: document.querySelector("#main-menu")
 }
 
-selectors.mainMenu.style.display = "none"
+const interfazTablas = {
+  carouselEmpleadas: document.querySelector("#cards-em"),
+  descripcionEmpleadas: document.querySelector("#descripcion-empleadas")
+}
+
+console.log(interfazTablas)
+contenedores.mainMenu.style.display = "none"
+
+const swiper = new Swiper(".mySwiper", {
+  effect: "cards",
+  grabCursor: true,
+});
+
+const getData = async ( url ) => {
+    const res = await fetch(url)
+    const info = await res.json()
+    return info
+} 
+
+const cardsAHtml = ( data ) => {
+    const nodos = data.reduce( ( acc, value ) => {
+        return acc + `
+            <div class="swiper-slide card-empleada" id="empleada-${ value.id }">
+                <div class="container-img">
+                    <img class="img-empleada" src="./assets/avatares/anamaria2.jpg" alt="avatar de ${ value.nombre }">
+                </div>                
+                <h2>
+                    ${ value.nombre }
+                <h2>
+            </div>
+        `
+    }, "")    
+    return nodos
+}
+
+const descripcionAHtml = ( data ) => {    
+    return `
+        <div class="info-empleada">
+            <h2>
+                Descripción:
+            <h2>
+            <p>
+                ${ data.descripcion }
+            </p>
+            <div class="atributos-empleada">
+                <h2>
+                    Atributo:
+                <h2>
+                ${ data.atributos[0].tipo }
+            </div>
+        </div>
+    `   
+}
+
+const descripcionVacia = () => {
+  return `
+      <h2>
+          ñlsakdñlakdñlakdñlaskd
+      </h2>
+  `
+}
+
+interfazTablas.descripcionEmpleadas.innerHTML = descripcionVacia()
+
+const getInfoEmpleada = ( id, data ) => data.find( element => element.id === Number(id.slice(9)))
+
+getData("./assets/data/empleadas.json")
+.then( data => {
+    interfazTablas.carouselEmpleadas.innerHTML = cardsAHtml(data)
+    descripcionCards(document.querySelectorAll(".card-empleada"), data)
+})
+
+const descripcionCards = ( cards, data ) => {
+    console.log(cards)
+    for ( let i = 0; i < cards.length; i++ ) {
+        cards[i].onmouseover = ( event ) => {
+            if ( event.target.classList.contains("img-empleada")) {
+              const info = getInfoEmpleada( cards[i].id, data)              
+              interfazTablas.descripcionEmpleadas.innerHTML = info ? descripcionAHtml(info) : descripcionVacia()
+            }           
+        }      
+    } 
+}
+

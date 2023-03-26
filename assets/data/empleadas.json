@@ -1,0 +1,102 @@
+[
+    {
+        "id": 0,
+        "nombre": "Ana María",    
+        "edad": 42,         
+        "descripcion": "Dedicó gran parte de su vida a su familia y al trabajo doméstico. Actualmente se encuentra en el segundo año de la carrera Psicología. Busca acceder a un trabajo formal, su deseo es poder proveerse a sí misma y a su familia.",
+        "atributos": [
+            {
+                "tipo": "Paciencia",
+                "value": 0
+            }, 
+            {
+                "tipo": "Amabilidad",
+                "value": 0
+            }
+        ],
+        "fase": 1,
+        "avatar": "../avatares/anamaria2.jpg",
+        "escena_1": {},
+        "escena_2": {},
+        "escena_3": {}        
+    },
+    {
+        "id": 1,
+        "nombre": "Aylén",   
+        "edad": 23,           
+        "descripcion": "Sus trabajos anteriores siempre fueron relacionados con la atención al cliente. Está en el tercer año de la Licenciatura en Trabajo Social. Disfruta mucho de dialogar y contribuir con el bienestar barrial.",
+        "atributos": [
+            {
+                "tipo": "Empatía",
+                "value": 0
+            }, 
+            {
+                "tipo": "Amabilidad",
+                "value": 0
+            }
+        ],
+        "fase": 1,
+        "avatar": "../avatares/anamaria2.jpg",
+        "escena_1": {},
+        "escena_2": {},
+        "escena_3": {}        
+    },
+    {
+        "id": 2,
+        "nombre": "Isabella",   
+        "edad": 30,           
+        "descripcion": "CONTADORA CON QUINCE AÑOS DE EXPERIENCIA. Comenzó y perpetuó su vida laboral en el negocio familiar. Hoy a sus treinta, ya no da más, quiere independencia a toda costa.",
+        "atributos": [
+            {
+                "tipo": "Paciencia",
+                "value": 0
+            }           
+        ],
+        "fase": 1,
+        "avatar": "../avatares/anamaria2.jpg",
+        "escena_1": {},
+        "escena_2": {},
+        "escena_3": {}        
+    },
+    {
+        "id": 3,
+        "nombre": "Verónica",             
+        "descripcion": "Tras abandonar a su ex prometido en el altar y rebelarse ante la postura inflexible de su familia pudorosa, Vero busca independizarse de todo aquello que no la permita elegir su propio camino. Si bien es un abogada recibida con honores, recién está empezando a ejercer su profesión.",
+        "atributos": [
+            {
+                "tipo": "Elocuencia",
+                "value": 0
+            }            
+        ],
+        "fase": 1,
+        "avatar": "../avatares/anamaria2.jpg",
+        "escena_1": {},
+        "escena_2": {},
+        "escena_3": {}        
+    },
+    {
+        "id": 4,
+        "edad": 61, 
+        "nombre": "Silvia",             
+        "descripcion": "Docente y licenciada en Ciencias de la Educación. Si bien ya está jubilada, nada podrá enajenarla de su más grande pasión: 'Trabajar para educar'. Anteriormente fue capacitadora de docentes y una redactora influyente en el area de la Didactica y la Pedagogía. Ama a sus nietos.",
+        "atributos": [
+            {
+                "tipo": "Elocuencia",
+                "value": 0
+            }, 
+            {
+                "tipo": "Amabilidad",
+                "value": 0
+            },
+            {
+                "tipo": "Paciencia",
+                "value": 0
+            }
+        ],
+        "fase": 1,
+        "avatar": "../avatares/anamaria2.jpg",
+        "escena_1": {},
+        "escena_2": {},
+        "escena_3": {}        
+    }
+]
