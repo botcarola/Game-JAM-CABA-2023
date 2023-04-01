@@ -233,7 +233,7 @@
 
 .respuesta {
     position: absolute;
-    bottom: 180%;
+    bottom: 150%;
     left: 50%;
     transform: translate(-50%, 0);
 
@@ -245,12 +245,12 @@
 }
 
 .respuesta:first-child {
-    bottom: 250%;
+    bottom: 225%;
     transform: translate(-50%, -0);
 }
 
 .respuesta:last-child {
-    bottom: 210%;
+    bottom: 300%;
     transform: translate(-50%, 0);
 }
 

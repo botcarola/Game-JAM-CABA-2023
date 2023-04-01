@@ -72,7 +72,6 @@ back.addEventListener('click', (event) => {
     }, 2000)
 });
 
-
 // Volumen Modal
 const audio = document.querySelector('.audio');
 const modalContainer = document.querySelector('.modal__container');
