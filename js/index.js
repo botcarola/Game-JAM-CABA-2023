@@ -365,6 +365,8 @@ const clientesCards = data => {
     }, "") 
 }
 
+// dasd
+
 // FUNCIÓN QUE MONTA TODOS LOS STAGES
 
 const contenedorClientes = document.querySelector(".img-clientes")
