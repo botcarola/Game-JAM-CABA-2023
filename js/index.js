@@ -1,7 +1,7 @@
 // Botones Inicio
 const start = document.querySelector('.start');
 const load = document.querySelector('.load');
-const settings = document.querySelectorAll('.settings');
+const settings = document.querySelector('.settings');
 const fullScreen = document.querySelector('.window');
 
 
@@ -17,6 +17,8 @@ const cuerpo = document.body;
 const preloader = document.querySelector(".preloader");
 
 // Pestañas
+const menu = document.querySelector('#main-menu');
+const overlay = document.querySelector('.overlay');
 const inicio = document.querySelector('.inicio');
 const configuracion = document.querySelector('.configuracion');
 const novela = document.querySelector('.novela');
@@ -25,64 +27,51 @@ const novela = document.querySelector('.novela');
 const mainMenu = document.querySelector('#main-menu');
 const tablero = document.querySelector('#interfaz-tablas');
 
-// Comprobar pestaña
-let ultimaPantalla = 'inicio';
-let pantallaAnterior = 'inicio';
-
 // Botón para empezar una nueva partida
 start.addEventListener('click', () => {
-    mainMenu.style.display = 'none';
-    tablero.style.display = 'flex';
+    overlay.classList.add('fadeIn');
+    setTimeout(function(){
+        mainMenu.style.display = 'none';
+        tablero.style.display = 'flex';
 
-    pantallaAnterior = ultimaPantalla;
-    ultimaPantalla = 'tablero';
+        overlay.classList.remove('fadeIn');
+        overlay.classList.add('fadeOut');
+    }, 1000)
+    setTimeout(function(){
+        overlay.classList.remove('fadeOut');
+    }, 2000)
 });
 
-// Botón para acceder a configuración
-settings.forEach(setting => {
-    setting.addEventListener('click', () => {
-    pantallaAnterior = ultimaPantalla;
-    ultimaPantalla = 'configuracion';
-    
-    inicio.style.display = 'none';
-    novela.style.display = 'none';
-    configuracion.style.display = 'block';
-    });
-});
+settings.addEventListener('click', () => {
+    overlay.classList.add('fadeIn');
+    setTimeout(function(){
+        inicio.style.display = 'none';
+        configuracion.style.display = 'block';
 
-// Botón para guardar
-let guardarClicked = false;
-save.addEventListener('click', (event) => {
-    event.preventDefault();
-    localStorage.setItem('mute', mute.checked);
-    localStorage.setItem('volumen', volumen.value);
-    guardarClicked = true;
+        overlay.classList.remove('fadeIn');
+        overlay.classList.add('fadeOut');
+    }, 1000)
+    setTimeout(function(){
+        overlay.classList.remove('fadeOut');
+    }, 2000)
 });
 
 // Botón para volver hacia atrás
 back.addEventListener('click', (event) => {
     event.preventDefault();
-    if (pantallaAnterior === 'inicio') {
-        // Si la pantalla anterior fue inicio, redirigir al usuario a la pantalla de inicio
+    overlay.classList.add('fadeIn');
+    setTimeout(function(){
         inicio.style.display = 'block';
-        novela.style.display = 'none';
         configuracion.style.display = 'none';
-    } else if (pantallaAnterior === 'novela') {
-        // Si la pantalla anterior fue novela, redirigir al usuario a la pantalla de novela
-        inicio.style.display = 'none';
-        novela.style.display = 'flex';
-        configuracion.style.display = 'none';
-    } else {
-        // Si la pantalla anterior no es ni inicio ni novela, redirigir al usuario a la pantalla de inicio
-        inicio.style.display = 'block';
-        novela.style.display = 'none';
-        configuracion.style.display = 'none';
-    }
 
-    // Actualizar el valor de la pantalla actual y la pantalla anterior
-    ultimaPantalla = pantallaAnterior;
-    pantallaAnterior = cuerpo.dataset.pagina;
+        overlay.classList.remove('fadeIn');
+        overlay.classList.add('fadeOut');
+    }, 1000)
+    setTimeout(function(){
+        overlay.classList.remove('fadeOut');
+    }, 2000)
 });
+
 
 // Volumen Modal
 const audio = document.querySelector('.audio');
@@ -114,8 +103,11 @@ if (!localStorage.getItem('modalActive')) {
 // Preloader
 window.addEventListener('load', function() {
     setTimeout(() => {
-        preloader.classList.add("fadeOut");
+        preloader.classList.add("fadeLoad");
     }, 1000);
+    setTimeout(() => {
+        preloader.style.display = "none"
+    }, 1800);
 });
 
 // Volumen
@@ -130,7 +122,6 @@ if (localStorage.getItem('mute') === 'true') {
     volumen.value = localStorage.getItem('volumen') || 0.5;
 }
 
-// 
 window.addEventListener('beforeunload', (event) => {
     if(!back){
         audio.pause();
@@ -185,26 +176,13 @@ exit.addEventListener('click', () => {
 
 
 
-// Acceder a tablero (jornada)
-// let objeto = {
-//     stageActual: 1,
-//     empleadaCasoMain: 'Ana María',
-//     clienteCasoMain: 'Roberto',
-//     clienteCasoSecundarioA: 'Roberto',
-//     empleadaCasoSecundarioA: 'Ana María'
-// };
+const jornada = document.querySelector(".jornada");
 
-// const objetoJSON = JSON.stringify(objeto);
+jornada.addEventListener('click', empezarJornada);
 
-// const jornada = document.querySelector(".jornada");
-
-// jornada.addEventListener('click', empezarJornada);
-
-
-// function empezarJornada() {
-//     window.location.href = 'novela.html';
-//     localStorage.setItem('miObjeto', objetoJSON);
-// }
+function empezarJornada() {
+    window.location.href = 'novela.html';
+}
 
 
 
@@ -287,13 +265,41 @@ const descripcionAHtml = ( data ) => {
         </div>
     `   
 }
+    
 
-const atributoAHtml = ( data ) => {    
+const validarColorAtributo = value => {   
+
+    let nodo = ""       
+
+    value.atributos.forEach( element => {        
+
+        if ( element === "Egoísta" || element === "Empática") {
+            nodo += `<li class="atributo-rojo"> ${ element } </li>`
+    
+        } else if ( element === "Paciente" || element === "Ansioso") {
+            nodo += `<li class="atributo-amarillo"> ${ element } </li>`
+    
+        } else if ( element === "Inseguro" || element === "Determinada") {
+            nodo += `<li class="atributo-verde"> ${ element } </li>`
+    
+        } else if ( element === "Inflexible" || element === "Elocuente") {
+            nodo +=`<li class="atributo-azul"> ${ element } </li>`
+        }
+    })     
+    return nodo
+}
+        
+
+
+const atributoAHtml = ( data ) => {      
+
     return `
-        <div class="atributos-empleada">
-            <span class="texto-atributo">
-                Atributo: <span class="especial">${ data.atributos[0].tipo }</span>
-            </span>
+        <div class="atributos-empleada">            
+            <ul class="texto-atributo">            
+                ${
+                    validarColorAtributo(data)
+                }
+            </ul>
         </div>
     `   
 }
@@ -303,36 +309,89 @@ const descripcionVacia = ( ) => {
     <div class="info-empleada">
         <p class="descripcion-texto">
         Es venezolana, de 42 años, casada hace 20 años, con 2 hijos. Se recibió hace años de psicóloga, pero jamás ejerció porque decidió quedarse en casa a criarlos. Ahora que ya han crecido, desea comenzar su profesión y aportar al hogar económicamente. Su sueño es comprarse una casa.
-        </p>
-        <div class="atributos-empleada">
-            <span class="texto-atributo">
-                Atributo: Paciente
-            </span>
-        </div>
+        </p>        
     </div>
 `  
 }
 
+const atributoVacio = () => {
+    return `
+    <div class="atributos-empleada">
+            <span class="texto-atributo">                             
+                <span class="atributo-amarillo"> Paciente </span>
+            </span>
+        </div>
+    `
+    
+}
+
 interfazTablas.descripcionEmpleadas.innerHTML = descripcionVacia()
-interfazTablas.atributoEmpleadas.innerHTML = descripcionVacia()
+interfazTablas.atributoEmpleadas.innerHTML = atributoVacio()
 
 const getInfoEmpleada = ( id, data ) => data.find( element => element.id === Number(id.slice(9)))
 
-getData("./assets/data/empleadas.json")
-.then( data => {
-    interfazTablas.carouselEmpleadas.innerHTML = cardsAHtml(data)
-    descripcionCards(document.querySelectorAll(".card-empleada"), data)
-})
 
 const descripcionCards = ( cards, data ) => {
-    console.log(cards)
+
     for ( let i = 0; i < cards.length; i++ ) {
-        cards[i].onmouseover = ( event ) => {
+        cards[i].onmouseover = ( event ) => {            
             if ( event.target.classList.contains("img-empleada")) {
                 const info = getInfoEmpleada( cards[i].id, data)              
                 interfazTablas.descripcionEmpleadas.innerHTML = info ? descripcionAHtml(info) : descripcionVacia()
-                interfazTablas.atributoEmpleadas.innerHTML = info ? atributoAHtml(info) : descripcionVacia()
+                interfazTablas.atributoEmpleadas.innerHTML = info ? atributoAHtml(info) : atributoVacio()
             }           
         }      
     } 
 }
+
+const empleadasStage1 = ( empleadas ) => empleadas.filter( element => element.fase === 1 )
+const empleadasStage2 = ( empleadas ) => empleadas.filter( element => element.fase === 2 )
+const obtenerLStorage = clave => JSON.parse( localStorage.getItem( clave ) )
+
+// CARDS CLIENTES
+
+
+
+const clientesCards = data => {   
+
+    return data.reduce( ( acc, element ) => {
+        return acc + `
+        <div class="swiper-slide">
+            <div class="container-img-cliente">
+                <img src=${element.avatar} alt="cliente ${element.nombre}" >
+            </div>                
+        <div>
+    `
+    }, "") 
+}
+
+// dasd
+
+// FUNCIÓN QUE MONTA TODOS LOS STAGES
+
+const contenedorClientes = document.querySelector(".img-clientes")
+
+
+const cardsEmpleadas = ( dataEmpleadas ) => {
+
+    let empleadasInicial = empleadasStage1(dataEmpleadas)    
+
+    if ( obtenerLStorage("setearStage") === 1  ) {
+
+        interfazTablas.carouselEmpleadas.innerHTML = cardsAHtml(empleadasInicial)        
+        descripcionCards(document.querySelectorAll(".card-empleada"), dataEmpleadas)
+        contenedorClientes.innerHTML = clientesCards(empleadasStage1(clientesAgencia))
+
+    } else if ( obtenerLStorage("setearStage") === 2  ) {
+        
+        interfazTablas.carouselEmpleadas.innerHTML = cardsAHtml(empleadasInicial.concat(empleadasStage2(dataEmpleadas)))
+        descripcionCards(document.querySelectorAll(".card-empleada"), dataEmpleadas)
+
+    } else if ( obtenerLStorage("setearStage") === 3  ) {
+    
+        interfazTablas.carouselEmpleadas.innerHTML = cardsAHtml(data)
+        descripcionCards(document.querySelectorAll(".card-empleada"), dataEmpleadas)
+    }
+}
+
+cardsEmpleadas(empleadasAgencia)
