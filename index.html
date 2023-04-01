@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 </head>
 <body class="body">
+    <div class="overlay"></div>
     <div id="main-menu">              
         <!-- Audio -->
         <div class="modal__container">
@@ -37,7 +38,6 @@
                     <div class="mini-hoja">
                         <div class="buttons-column">
                             <button class="button start">Empezar partida</button>
-                            <button class="button load">Continuar</button>
                             <div class="pantalla-completa">
                                 <button class="button settings">Opciones</button>
                                 <button class="button window">Pantalla</button>
@@ -54,33 +54,41 @@
         </div>
 
         <div class="configuracion">
-            <div class="container">
-                <div class="contenido-column">
-                    <h2 class="title-2">Configuración</h2>
-                    <form class="form-config">
-                        <h3 class="title-3">Opciones de sonido</h3>
-                        <label class="label">
-                            <input class="mute" type="checkbox" name="sonido">
-                            Desactivar sonido
-                        </label>
-                        <label class="label">
-                            <input class="vol-master" type="range" id="volumen" min="0" max="1" step="0.01" value="1">
-                            Volumen maestro
-                        </label>
-                        <h3 class="title-3">Opciones de idioma</h3>
-                        <label class="label">
-                            <input type="radio" name="idioma" value="es" checked>
-                            Español
-                        </label>
-                        <label class="label">
-                            <input type="radio" name="idioma" value="en">
-                            Inglés
-                        </label>
-                        <div class="buttons-row">
-                            <input class="btn save" value="Guardar">
-                            <button class="btn back" data-page="menu">Volver</button>
+            <div class="mini-libreta-config">
+                <div class="mini-hoja__container-config">
+                    <h1 class="title">Configuración</h1>
+                    <div class="mini-hoja-config">
+                        <div class="buttons-column">
+                            <form class="form-config">
+                                <h3 class="title-3">Opciones de sonido</h3>
+                                <label class="label">
+                                    <input class="mute" type="checkbox" name="sonido">
+                                    Desactivar sonido
+                                </label>
+                                <label class="label">
+                                    <input class="vol-master" type="range" id="volumen" min="0" max="1" step="0.01" value="1">
+                                    Volumen maestro
+                                </label>
+                                <h3 class="title-3">Opciones de idioma</h3>
+                                <label class="label">
+                                    <input type="radio" name="idioma" value="es" checked>
+                                    Español
+                                </label>
+                                <label class="label">
+                                    <input type="radio" name="idioma" value="en">
+                                    Inglés
+                                </label>
+                                <div class="buttons-row">
+                                    <input class="button save" value="Guardar">
+                                    <button class="button back" data-page="menu">Volver</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                        <div class="mini-renglon-config"></div>
+                    </div>
+                </div>
+                <div class="mini-aro-config">
+                    <div class="mini-linea-config"></div>
                 </div>
             </div>
         </div>
@@ -111,13 +119,22 @@
                 <div class="aro-1"><div class="linea-1"></div></div>                
             </div>
             <!-- CLIENTES -->
+
+
+
+
+
             <div id="container-clientes" class="libreta libreta-2">
                 <div class="hoja__container">
                     <div class="hoja">
                         <div class="lista-clientes"></div>
                         <div class="sub-container">
-                            <div class="descripcion-clientes"></div>
-                            <div class="caso-empleada"></div>
+                            <div class="img-clientes">
+                                
+                            </div>
+                            <div class="des-clientes">
+                                
+                            </div>
                         </div>
                         <!-- <div class="renglon"></div> -->
                         <button class="button jornada">Empezar jornada</button>
@@ -128,6 +145,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="./js/dialogos.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

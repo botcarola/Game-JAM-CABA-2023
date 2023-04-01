@@ -20,6 +20,7 @@
 }
 
 .body {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,11 +53,11 @@
 }
 
 .title-3 {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .label {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
 }
 
 #main-menu {
@@ -71,6 +72,8 @@
 /* Pantalla inicial */
 .inicio {
     text-align: center;
+    transition: all 1s ease;
+    opacity: 1;
 }
 
 .buttons-column {
@@ -149,6 +152,67 @@
 /* Pantalla config */
 .configuracion {
     display: none;
+}
+
+/* LIBRETA */
+.mini-libreta-config {
+    position: relative;
+
+    height: 650px;
+    width: 500px;
+    border-radius: 10px;
+
+    background-color: #AA96DA;
+    box-shadow: -7px 7px #fff, -12px 12px #00000065;
+}
+
+.mini-aro-config {
+    position: absolute;
+    top: 30px;
+    right: 7px;
+
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+
+    color: #fff;
+    background-color: #fff;
+    box-shadow: 0 40px, 0 80px, 0 120px, 0 160px, 0 200px, 0 240px, 0 280px, 0 320px, 0 360px, 0 400px, 0 440px, 0 480px, 0 520px, 0 560px;
+}
+
+.mini-linea-config {
+    position: absolute;
+    top: 3px;
+    right: -20px;
+
+    width: 30px;
+    height: 8px;
+    border-radius: 100px;
+
+    color: rgb(49, 143, 49);
+    background-color: rgb(49, 143, 49);
+    box-shadow: 0 40px, 0 80px, 0 120px, 0 160px, 0 200px, 0 240px, 0 280px, 0 320px, 0 360px, 0 400px, 0 440px, 0 480px, 0 520px, 0 560px;
+}
+
+.mini-hoja__container-config {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+}
+
+.mini-hoja-config {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 70%;
+    border-radius: 20px;
+
+    color: var(--container-color);
+    background-color: #bfafe6;
 }
 
 .form-config {
@@ -277,9 +341,48 @@
     transition: opacity 0.5s ease-in-out;
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fadeLoad {
+    animation: moveFadeInicio 1s forwards;
+}
+
+.fadeIn {
+    z-index: 99999999;
+    animation: moveFadeIn 1s forwards;
+}
+
 .fadeOut {
-    opacity: 0;
-    display: none;
+    z-index: 99999999;
+    animation: moveFadeOut 1s forwards;
+}
+
+.index {
+    z-index: 0;
+}
+
+@keyframes moveFadeInicio {
+    to {opacity: 0;}
+
+    from {opacity: 1;}
+}
+
+@keyframes moveFadeIn {
+    from { background-color: transparent;}
+
+    to { background-color: #000;}
+}
+
+@keyframes moveFadeOut {
+    from { background-color: #000;}
+
+    to { background-color: transparent;}
 }
 
 .carga{
@@ -311,8 +414,6 @@
 @keyframes carga {
     to{transform: rotate(360deg);}
 }
-
-
 
 
 
@@ -391,12 +492,11 @@
     display: flex;
     justify-content: center;
     width: 80%;
-    height: 50%;
+    height: 40%;
     border-radius: 20px;
 
     color: var(--container-color);
     background-color: #bfafe6;
-
 }
 
 
@@ -436,7 +536,7 @@
     border-radius: 10px;
     margin: 10px 5px 10px 10px;
 
-    background-color: #838181;
+    background-color: #ffffff;
 }
 
 .libreta-2 {
@@ -447,7 +547,7 @@
     border-radius: 10px;
     margin: 10px 10px 10px 5px;
 
-    background-color: #838181;
+    background-color: #ffffff;
 
 }
 
@@ -537,7 +637,7 @@
     padding: 20px;
 
     border-radius: 25px;
-    background-color: #fff;
+    background-color: #ecb5fd;
 }
 
 .renglon {

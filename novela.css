@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500&display=swap');
 
+:root {
+    --bg-color: rgba(209, 163, 252, 0.8);
+    --color: #3742db;
+    --container-color: #7765b5;
+    --border-color: #6450ac;
+    --dark-color: #493e70;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -10,8 +18,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    margin: 0;
     height: 100vh;
+    width: 100vw;
 }
 
 .body::before {
@@ -31,6 +40,7 @@
 
 /* Novela */
 .novela {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -65,13 +75,23 @@
 }
 
 .dialogo__container {
-    display: flex;
-    justify-content: space-between;
     position: absolute;
     bottom: 30px;
-    margin: 20px;
-    width: 90%;
-    height: 150px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    justify-content: space-between;
+    
+    width: 95%;
+    height: 250px;
+    border-radius: 25px;
+    padding: 30px;
+    font-size: 20px;
+    font-family: 'Delicious Handrawn', cursive;
+    color: #fff;
+
+
+    background-color: #7665b59d;
 }
 
 .container {
@@ -98,4 +118,190 @@
 
 .dialogo {
     font-size: 2.3rem;
+}
+
+/* Botones */
+
+.buttons {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 60%;
+}
+
+.button {
+    /* visibility: hidden; */
+    width: 100%;
+    transition: transform .2s;
+    text-align: center;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    padding: 10px 5px;
+    background-color: var(--container-color);
+}
+
+.iniciar {
+    position: absolute;
+    bottom: 400px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 30%;
+    transition: transform .2s;
+    text-align: center;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 50px;
+    padding: 10px 5px;
+    border: 5px solid var(--border-color);
+    background-color: var(--container-color);
+
+    transition: background .3s;
+}
+
+.backTablas {
+    display: none;
+    position: absolute;
+    bottom: 400px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 30%;
+    transition: transform .2s;
+    text-align: center;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 50px;
+    padding: 10px 5px;
+    border: 5px solid var(--border-color);
+    background-color: var(--container-color);
+
+    transition: background .3s;
+}
+
+.siguiente {
+    background-color: #62c27a;
+}
+
+.load {
+    background-color: #6288c2;
+}
+
+.settings {
+    background-color: #8b82be;
+}
+
+.window {
+    background-color: #8b82be;
+}
+
+.anterior {
+    background-color: #c26262;
+}
+
+.anterior, .siguiente, .settings {
+    visibility: hidden;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    color: rgb(238, 189, 240);
+}
+
+.button:focus {
+    transform: translateY(-5px);
+    color: var(--color);
+}
+
+.iniciar:hover, .backTablas:hover {
+    color: rgb(238, 189, 240);
+    background-color: #7665b59d;
+}
+
+.iniciar:active, .backTablas:active {
+    color: rgb(238, 189, 240);
+    background-color: #2a22469d;
+}
+
+
+
+
+.respuesta {
+    position: absolute;
+    bottom: 180%;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    font-size: 20px;
+    padding: 15px;
+    color: #fff;
+    background-color: #7765b5;
+    border: none;
+}
+
+.respuesta:first-child {
+    bottom: 250%;
+    transform: translate(-50%, -0);
+}
+
+.respuesta:last-child {
+    bottom: 210%;
+    transform: translate(-50%, 0);
+}
+
+.respuesta:hover {
+    background-color: #7665b5b7;
+}
+
+
+
+/* Efectos */
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fadeLoad {
+    animation: moveFadeInicio 1s forwards;
+}
+
+.fadeIn {
+    z-index: 99999999;
+    animation: moveFadeIn 1s forwards;
+}
+
+.fadeOut {
+    z-index: 99999999;
+    animation: moveFadeOut 1s forwards;
+}
+
+.index {
+    z-index: 0;
+}
+
+@keyframes moveFadeInicio {
+    to {opacity: 0;}
+
+    from {opacity: 1;}
+}
+
+@keyframes moveFadeIn {
+    from { background-color: transparent;}
+
+    to { background-color: #000;}
+}
+
+@keyframes moveFadeOut {
+    from { background-color: #000;}
+
+    to { background-color: transparent;}
 }
