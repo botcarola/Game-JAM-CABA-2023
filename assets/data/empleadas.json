@@ -1,0 +1,103 @@
+[
+    {
+        "id": 0,
+        "nombre": "Ana María",    
+        "edad": 42,         
+        "descripcion": "Es venezolana, de 42 años, casada hace 20 años, con 2 hijos. Se recibió hace años de psicóloga, pero jamás ejerció porque decidió quedarse en casa a criarlos. Ahora que ya han crecido, desea comenzar su profesión y aportar al hogar económicamente. Su sueño es comprarse una casa.",
+        "atributos": [
+            {
+                "tipo": "Paciente",
+                "value": 0
+            }
+        ],
+        "fase": 1,
+        "avatar": "/../assets/avatares/anamaria2.jpg",
+        "escena_1": {},
+        "escena_2": {},
+        "escena_3": {}        
+    },
+    {
+        "id": 1,
+        "nombre": "Aylén",   
+        "edad": 28,           
+        "descripcion": "Tiene 28 años. Proviene de una familia de clase baja, por lo que al terminar la secundaria comenzó a trabajar. Disfruta mucho el dialogar con la gente y contribuir con el bienestar barrial. Comenzó a estudiar una Licenciatura en Trabajo Social a sus 20, pero debido al poco tiempo que le dedicó a su carrera se encuentra en su tercer año. Su sueño es recibirse.",
+        "atributos": [
+            {
+                "tipo": "Empática",
+                "value": 0
+            }
+        ],
+        "fase": 1,
+        "avatar": "/../assets/avatares/aylen1.jpg",
+        "escena_1": {},
+        "escena_2": {},
+        "escena_3": {}        
+    },
+    {
+        "id": 2,
+        "nombre": "Isabella",   
+        "edad": 30,           
+        "descripcion": "Tiene 30 años. Comenzó a trabajar a los 15 años en el negocio de su familia como cajera. Esto la llevó a estudiar para contadora pública. Harta de las demandas de su familia, al recibirse decidió abandonar la empresa para buscar su propio camino. Desea independizarse de su familia.",
+        "atributos": [
+            {
+                "tipo": "Determinada",
+                "value": 0
+            },
+            {
+                "tipo": "Empática",
+                "value": 1
+            }      
+        ],
+        "fase": 2,
+        "avatar": "/../assets/avatares/isabellaprototipo01.jpg",
+        "escena_1": {},
+        "escena_2": {},
+        "escena_3": {}        
+    },
+    {
+        "id": 3,
+        "nombre": "Verónica",
+        "edad": 28,          
+        "descripcion": "Tiene 28 años. Se recibió recientemente como abogada, recibida con honores. Proveniente de una familia de clase alta, vivió siempre bajo el amparo de sus padres. Al abandonar a su ex prometido en el altar porque no lo amaba, sus padres la exiliaron de la familia. Su sueño es comenzar a valerse por sí misma.",
+        "atributos": [
+            {
+                "tipo": "Elocuente",
+                "value": 0
+            },
+            {
+                "tipo": "Determinada",
+                "value": 1
+            }           
+        ],
+        "fase": 1,
+        "avatar": "/../assets/avatares/veronica2.jpg",
+        "escena_1": {},
+        "escena_2": {},
+        "escena_3": {}        
+    },
+    {
+        "id": 4,
+        "edad": 68, 
+        "nombre": "Silvia",             
+        "descripcion": "Tiene 68 años. Es Licenciada en Ciencias de la Educación. Pese a estar jubilada continúa trabajando, investigando y capacitando docentes. Enviudó hace varios años y jamás volvió a enamorarse. Prefiere dedicar su tiempo libre a sus nietos, su mayor fuente de adoración. Su sueño es transmitir su vocación de enseñar.",
+        "atributos": [
+            {
+                "tipo": "Elocuente",
+                "value": 0
+            }, 
+            {
+                "tipo": "Determinada",
+                "value": 1
+            },
+            {
+                "tipo": "Empática",
+                "value": 2
+            }
+        ],
+        "fase": 3,
+        "avatar": "/../assets/avatares/silvia1.jpg",
+        "escena_1": {},
+        "escena_2": {},
+        "escena_3": {}        
+    }
+]
