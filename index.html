@@ -2,64 +2,132 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Jueguito</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">    
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/98mprice/PSone.css@master/PSone.min.css">
+
+    <title>Jueguito</title>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 </head>
-<body>
-    <!-- Cursor -->
+<body class="body">
     <div id="main-menu">              
-        <div id="cursor__container" class="cursor__container">
-            <div id="cursor" class="cursor"></div>
-        </div>
-        <div class="inicio">
-            <audio class="audio" src="audio.mp3" type="audio/mp3" autoplay="" loop="" controls="" preload="auto"></audio>
-            <h1 class="title">Jueguito</h1>
-            <div class="buttons">
-                <button class="button start">Empezar partida</button>
-                <button class="button continue">Continuar</button>
-                <div class="pantalla-completa">
-                    <button class="button settings">Configuración</button>
-                    <button class="button window">Pantalla</button>
-                </div>
-                <button class="button exit">Salir</button>
+        <!-- Audio -->
+        <div class="modal__container">
+            <div class="modal container">
+                <h2 class="title-2">¿Desea reproducir la música?</h2>
+                <button class="btn play-music">Sí</button>
+                <button class="btn stop-music">No</button>
             </div>
         </div>
+        <audio class="audio" src="audio/mainmenu.mp3" type="audio/mp3" loop="" preload="auto"></audio>
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="carga">
+                <div class="carga">
+                    <div class="carga"></div>
+                </div>
+            </div>
+        </div>
+        <div class="inicio">
+            <div class="mini-libreta">
+                <div class="mini-hoja__container">
+                    <h1 class="title">Company X</h1>
+                    <div class="mini-hoja">
+                        <div class="buttons-column">
+                            <button class="button start">Empezar partida</button>
+                            <button class="button load">Continuar</button>
+                            <div class="pantalla-completa">
+                                <button class="button settings">Opciones</button>
+                                <button class="button window">Pantalla</button>
+                            </div>
+                            <button class="button exit">Salir</button>
+                        </div>
+                        <div class="mini-renglon"></div>
+                    </div>
+                </div>
+                <div class="mini-aro">
+                    <div class="mini-linea"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="configuracion">
-            <h2>Configuración</h2>
-            <form class="form-config">
-                  <h3>Opciones de sonido</h3>
-                  <label>
-                      <input class="mute" type="checkbox" name="sonido">
-                      Desactivar sonido
-                  </label>
-                  <label>
-                      <input class="vol-master" type="range" id="volumen" min="0" max="1" step="0.01" value="1">
-                      Volumen maestro
-                  </label>
-                  <h3>Opciones de idioma</h3>
-                  <label>
-                      <input type="radio" name="idioma" value="es" checked>
-                      Español
-                  </label>
-                  <label>
-                      <input type="radio" name="idioma" value="en">
-                      Inglés
-                  </label>
-                  <div class="buttons-config">
-                      <input class="button save" type="submit" value="Guardar">
-                      <button class="button back">Volver</button>
-                  </div>
-            </form>
+            <div class="container">
+                <div class="contenido-column">
+                    <h2 class="title-2">Configuración</h2>
+                    <form class="form-config">
+                        <h3 class="title-3">Opciones de sonido</h3>
+                        <label class="label">
+                            <input class="mute" type="checkbox" name="sonido">
+                            Desactivar sonido
+                        </label>
+                        <label class="label">
+                            <input class="vol-master" type="range" id="volumen" min="0" max="1" step="0.01" value="1">
+                            Volumen maestro
+                        </label>
+                        <h3 class="title-3">Opciones de idioma</h3>
+                        <label class="label">
+                            <input type="radio" name="idioma" value="es" checked>
+                            Español
+                        </label>
+                        <label class="label">
+                            <input type="radio" name="idioma" value="en">
+                            Inglés
+                        </label>
+                        <div class="buttons-row">
+                            <input class="btn save" value="Guardar">
+                            <button class="btn back" data-page="menu">Volver</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    <div id="table">
-        <div class="container">
-            sañldkñsladk
+    <div id="interfaz-tablas">
+        <!-- NOTIFICACIÓN -->
+        <button class="ayuda">?</button>
+        <div class="container-notificaciones">
+            <div class="notificaciones"></div>
+        </div>     
+        <!-- TABLA -->
+        <div class="tablas">
+            <!-- Barra -->
+            <div class="barra"></div>
+            <!-- EMPLEADAS -->
+            <div id="container-empleadas" class="libreta libreta-1">
+                <div class="hoja__container">
+                    <div class="cards-empleadas">                
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper" id="cards-em"></div>
+                        </div>                
+                    </div>
+                    <div id="descripcion-empleadas" class="hoja">
+                        <h1>dasda</h1>
+                    </div>
+                </div>
+                <div id="atributo-empleadas" class="hoja-atributo"></div>
+                <div class="aro-1"><div class="linea-1"></div></div>                
+            </div>
+            <!-- CLIENTES -->
+            <div id="container-clientes" class="libreta libreta-2">
+                <div class="hoja__container">
+                    <div class="hoja">
+                        <div class="lista-clientes"></div>
+                        <div class="sub-container">
+                            <div class="descripcion-clientes"></div>
+                            <div class="caso-empleada"></div>
+                        </div>
+                        <!-- <div class="renglon"></div> -->
+                        <button class="button jornada">Empezar jornada</button>
+                    </div>
+                </div>
+                <div class="aro-2"> <div class="linea-2"></div></div>
+            </div>
         </div>
     </div>
-    <script type="text/JavaScript" src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
