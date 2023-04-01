@@ -92,7 +92,9 @@ const contenedores = {
 
 const interfazTablas = {
   carouselEmpleadas: document.querySelector("#cards-em"),
-  descripcionEmpleadas: document.querySelector("#descripcion-empleadas")
+  descripcionEmpleadas: document.querySelector("#descripcion-empleadas"),
+  listaClientes: document.querySelector(".lista-clientes"),
+  descripcionClientes: document.querySelector(".descripcion-clientes")
 }
 contenedores.mainMenu.style.display = "none"
 
@@ -186,18 +188,60 @@ const getInfoEmpleada = ( id, data ) => data.find( element => element.id === Num
 getData("./assets/data/empleadas.json")
 .then( data => {
     interfazTablas.carouselEmpleadas.innerHTML = cardsAHtml(data)
-    descripcionCards(document.querySelectorAll(".card-empleada"), data)
+    descripcionCards( document.querySelectorAll(".card-empleada"), data, descripcionAHtml )
 })
 
-const descripcionCards = ( cards, data ) => {
-    console.log(cards)
+const descripcionCards = ( cards, data, descripciones ) => {    
     for ( let i = 0; i < cards.length; i++ ) {
         cards[i].onmouseover = ( event ) => {
             if ( event.target.classList.contains("img-empleada")) {
               const info = getInfoEmpleada( cards[i].id, data)              
-              interfazTablas.descripcionEmpleadas.innerHTML = info ? descripcionAHtml(info) : descripcionVacia()
+              interfazTablas.descripcionEmpleadas.innerHTML = info && descripciones(info) 
             }           
         }      
     } 
 }
+
+// TABLA CLIENTES
+
+const cardsClientesAHtml = data => {
+    const nodos = data.reduce( ( acc, element ) => {
+        return acc + ` 
+            <div class="img-cliente" id="empleada-${ element.id }">
+                <img src=${ element.avatar }>
+            </div>
+        `
+    }, "")    
+    return nodos
+}
+
+const descripcionCliente = ( data ) => {
+    return `
+    <div class="info-cliente">        
+        <p>
+            ${ data.descripcion }
+        </p>
+    </div>
+`
+}
+
+
+const renderDescripcionCliente = ( cards, data ) => {
+  for ( let i = 0; i < cards.length; i++ ){
+      cards[i].onclick = () => {          
+          const info = getInfoEmpleada( cards[i].id, data )
+          interfazTablas.descripcionClientes.innerHTML = descripcionCliente(info)                   
+      }
+  }
+}
+
+const clienteEmpleada = () => {
+
+}
+
+getData("./assets/data/empleadas.json")
+.then ( data => {
+    interfazTablas.listaClientes.innerHTML = cardsClientesAHtml(data)    
+    renderDescripcionCliente( document.querySelectorAll(".img-cliente"), data)    
+})
 
