@@ -38,7 +38,7 @@ const empleadasAgencia = [
         descripcion: "Tiene 26 años. Es deportista y trabaja en un gimnasio, dando clases. Cuando era adolescente vivía compitiendo y sus padres la presionaban mucho para ganar, por lo que exigía su cuerpo de más. Esto la llevó a lesionarse y se vió forzada a abandonar las competencias. Decidida a convertirse en deportóloga, comenzó a estudiar medicina. Su objetivo es ayudar a que otros atletas se cuiden y no sufran lo mismo que ella.",
         atributos: [  "Empática" ],
         fase: 2,
-        avatar: "/../assets/avatares/lucia.jpg",
+        avatar: "/../assets/avatares/lucia.png",
         staff: false
     },
     {
@@ -68,7 +68,7 @@ const empleadasAgencia = [
         descripcion: "Tiene 29 años. Estudia música y trabaja como acompañante terapéutica. Proveniente de una familia de clase media, es adoptada e hija única. Adora a los niños y las fiestas navideñas. Su sueño es convertirse en psicoterapeuta y construir la familia grande que no tuvo.",
         atributos: [ "Paciente" ],
         fase: 3,
-        avatar: "/../assets/avatares/veronica2.jpg",
+        avatar: "/../assets/avatares/clara.png",
         staff: false
     },
 ]

@@ -29,8 +29,38 @@ const novela = document.querySelector('.novela');
 const mainMenu = document.querySelector('#main-menu');
 const tablero = document.querySelector('#interfaz-tablas');
 
+// FORM aside
+const formStage1 = document.querySelector(".f-stage-1")
+const formStage2 = document.querySelector(".f-stage-2")
+const formStage3 = document.querySelector(".f-stage-3")
+
+
+if ( !localStorage.getItem("stageInicio")) {
+    localStorage.setItem("stageInicio", JSON.stringify(1))    
+
+} 
+
+if ( localStorage.getItem("stageInicio") === "1") {
+    formStage1.style.display = "flex"
+    formStage2.style.display = "none"
+    formStage3.style.display = "none"
+    
+} else if ( localStorage.getItem("stageInicio") === "2") {
+    formStage1.style.display = "none"
+    formStage2.style.display = "flex"
+    formStage3.style.display = "none"
+
+} else if ( localStorage.getItem("stageInicio") === "3") {
+    formStage1.style.display = "none"
+    formStage2.style.display = "none"
+    formStage3.style.display = "flex"
+
+}
+
+
 // Botón para empezar una nueva partida
 start.addEventListener('click', () => {
+    localStorage.setItem("partida-iniciada", JSON.stringify(true))    
     overlay.classList.add('fadeIn');
     page.play();
     setTimeout(function(){
@@ -44,7 +74,15 @@ start.addEventListener('click', () => {
         overlay.classList.remove('fadeOut');
         sonidoTablas.play()
     }, 2000)
+    
 });
+
+// validar partida iniciada
+
+if ( localStorage.getItem("partida-iniciada") === "true") {
+    mainMenu.style.display = "none"
+    tablero.style.display = "block"
+}
 
 settings.addEventListener('click', () => {
     overlay.classList.add('fadeIn');
@@ -76,11 +114,7 @@ back.addEventListener('click', (event) => {
     setTimeout(function(){
         overlay.classList.remove('fadeOut');
     }, 2000)
-});
-
-
-
-
+})
 
 // Volumen Modal
 const audio = document.querySelector('.audio');
@@ -89,24 +123,19 @@ const modal = document.querySelector('.modal');
 const playButton = document.querySelector('.play-music');
 const stopButton = document.querySelector('.stop-music');
 
-audio.play();
-if (!localStorage.getItem('modalActive')) {
-    modalContainer.style.display = 'block';
+modalContainer.style.display = 'block';
 
-    playButton.addEventListener('click', function() {
-        audio.currentTime = 0;
-        audio.play();
-        modalContainer.style.display = 'none';
-    });
+playButton.addEventListener('click', function () {
+    audio.currentTime = 0;
+    audio.play();
+    modalContainer.style.display = 'none';
+})
 
-    stopButton.addEventListener('click', function() {
-        audio.pause();
-        audio.currentTime = 0;
-        modalContainer.style.display = 'none';
-    });
-
-    localStorage.setItem('modalActive', true);
-}
+stopButton.addEventListener('click', function () {
+    audio.pause();
+    audio.currentTime = 0;
+    modalContainer.style.display = 'none';
+});
 
 // Preloader
 window.addEventListener('load', function() {
@@ -182,32 +211,11 @@ exit.addEventListener('click', () => {
     }
 });
 
-
-
 const jornada = document.querySelector(".jornada");
 
-jornada.addEventListener('click', empezarJornada);
-
-function empezarJornada() {
-    overlay.classList.add('fadeIn');
-    page.play();
-    setTimeout(function(){
-        window.location.href = 'novela.html';
-
-        overlay.classList.remove('fadeIn');
-        overlay.classList.add('fadeOut');
-    }, 1000)
-    setTimeout(function(){
-        overlay.classList.remove('fadeOut');
-    }, 2000)
+jornada.onclick = () => {
+    document.querySelector("aside").style.display = "flex"
 }
-
-
-
-
-
-
-
 
 // TABLERO
 
@@ -227,13 +235,10 @@ const interfazTablas = {
 
 const notificacion = () => {
     const dialogo = `
-        <div class="notificacion">
-            <div class="notificacion-img">
-                <img src="./assets/avatares/aylen1.jpg" alt="chat con aylen">
-            </div>
+        <div class="notificacion">            
             <div class="container-notificacion">
                 <p class="texto-notificacion">
-                    ¡Bienvenida a la oficina, Hoy tenemos un par de casos interesantes!
+                    ¡Bienvenida a la oficina! Lee las historias y asigna a las profesionales adecuadas para que las consultas sean exitosas. La toma de decisiones impactará en tu agencia.
                 </p>
             </div>
             
@@ -374,11 +379,14 @@ const clientesCards = data => {
 
     return data.reduce( ( acc, element ) => {
         return acc + `
-        <div class="swiper-slide">
+        <div class="card-cliente">
             <div class="container-img-cliente">
                 <img src=${element.avatar} alt="cliente ${element.nombre}" >
-            </div>                
-        <div>
+            </div>    
+            <p>
+                ${ element.descripcion }
+            </p>            
+        </div>
     `
     }, "") 
 }
@@ -394,22 +402,70 @@ const cardsEmpleadas = ( dataEmpleadas ) => {
 
     let empleadasInicial = empleadasStage1(dataEmpleadas)    
 
-    if ( obtenerLStorage("setearStage") === 1  ) {
+    if ( obtenerLStorage("stageInicio") === 1  ) {
 
         interfazTablas.carouselEmpleadas.innerHTML = cardsAHtml(empleadasInicial)        
         descripcionCards(document.querySelectorAll(".card-empleada"), dataEmpleadas)
         contenedorClientes.innerHTML = clientesCards(empleadasStage1(clientesAgencia))
 
-    } else if ( obtenerLStorage("setearStage") === 2  ) {
+    } else if ( obtenerLStorage("stageInicio") === 2  ) {
         
         interfazTablas.carouselEmpleadas.innerHTML = cardsAHtml(empleadasInicial.concat(empleadasStage2(dataEmpleadas)))
         descripcionCards(document.querySelectorAll(".card-empleada"), dataEmpleadas)
 
-    } else if ( obtenerLStorage("setearStage") === 3  ) {
+    } else if ( obtenerLStorage("stageInicio") === 3  ) {
     
-        interfazTablas.carouselEmpleadas.innerHTML = cardsAHtml(data)
+        interfazTablas.carouselEmpleadas.innerHTML = cardsAHtml(dataEmpleadas)
         descripcionCards(document.querySelectorAll(".card-empleada"), dataEmpleadas)
     }
 }
 
 cardsEmpleadas(empleadasAgencia)
+
+// ASIGNACIÓN
+
+const cerrarAsideAsignacion = document.querySelector("#close-j-s1")
+
+cerrarAsideAsignacion.onclick = () => {
+    document.querySelector("aside").style.display = "none"
+}
+
+// Inicializar visual novel 
+
+const selectS1CasoMain = document.querySelector("#select-caso-mariano")
+const selectS1CasoSec = document.querySelector("#select-caso-david")
+
+const jornadaStage1 = ( main, subcaso, stage ) => {
+    localStorage.setItem( "jornadaPrimerStage", JSON.stringify( {
+        casoMain: main,
+        subcaso: subcaso,
+        stageActual: stage
+    }))
+}
+
+document.querySelector(".f-stage-1").onsubmit = e => {
+    e.preventDefault()
+
+    if (selectS1CasoMain.value === selectS1CasoSec.value) {
+        selectS1CasoMain.style.border = "1px solid red"
+        selectS1CasoSec.style.border = "1px solid red"
+    } else {
+        if (selectS1CasoMain.value === "e-1") {
+            jornadaStage1("Ana María", "Aylén", 1)
+        } else if (selectS1CasoMain.value === "e-2") {
+            jornadaStage1("Aylén", "Ana María", 1)
+        }
+        overlay.classList.add('fadeIn');
+        setTimeout(function () {
+            mainMenu.style.display = 'none';
+            tablero.style.display = 'flex';
+
+            overlay.classList.remove('fadeIn');
+            overlay.classList.add('fadeOut');
+        }, 5000)        
+        setTimeout(() => {
+            window.location.href = "novela.html"
+        }, 1000)
+    }
+}
+

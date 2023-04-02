@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jueguito</title>
+    <title>Mujeres en Red</title>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="icon" href="assets/libreta.ico">
@@ -20,8 +20,10 @@
         <div class="modal__container">
             <div class="modal container">
                 <h2 class="title-2">¿Desea reproducir la música?</h2>
-                <button class="btn play-music">Sí</button>
-                <button class="btn stop-music">No</button>
+                <div class="box-buttons">
+                    <button class="btn play-music">Sí</button>
+                    <button class="btn stop-music">No</button>
+                </div>
             </div>
         </div>
         <audio class="audio" src="audio/mainmenu.mp3" type="audio/mp3" loop="" preload="auto"></audio>
@@ -36,7 +38,9 @@
         <div class="inicio">
             <div class="mini-libreta">
                 <div class="mini-hoja__container">
-                    <h1 class="title">Company X</h1>
+                    <div class="container-logo">
+                        <img class="logo-inicio" src="./img/Logo.png" alt="mujeres en red, sitio oficial" >
+                    </div>
                     <div class="mini-hoja">
                         <div class="buttons-column">
                             <button class="button start">Empezar partida</button>
@@ -97,7 +101,7 @@
     </div>
     <div id="interfaz-tablas">
         <!-- NOTIFICACIÓN -->
-        <button class="ayuda">?</button>
+        <!-- <button class="ayuda">?</button> -->
         <div class="container-notificaciones">
             <div class="notificaciones"></div>
         </div>     
@@ -114,7 +118,7 @@
                         </div>                
                     </div>
                     <div id="descripcion-empleadas" class="hoja">
-                        <h1>dasda</h1>
+                        
                     </div>
                 </div>
                 <div id="atributo-empleadas" class="hoja-atributo"></div>
@@ -122,29 +126,156 @@
             </div>
             <!-- CLIENTES -->
 
-
-
-<!-- sdsd -->
             <div id="container-clientes" class="libreta libreta-2">
-                <div class="hoja__container">
-                    <div class="hoja">
-                        <div class="lista-clientes"></div>
+                <div class="container-card-cliente">                  
+                        
                         <div class="sub-container">
                             <div class="img-clientes">
                                 
-                            </div>
-                            <div class="des-clientes">
-                                
-                            </div>
-                        </div>
-                        <!-- <div class="renglon"></div> -->
-                        <button class="button jornada">Empezar jornada</button>
-                    </div>
+                            </div>                            
+                        </div>                        
+                        <button class="button jornada">Empezar jornada</button>                    
                 </div>
                 <div class="aro-2"> <div class="linea-2"></div></div>
             </div>
         </div>
     </div>
+    <aside>
+        <div class="cerrar-j-aside1">
+            <button id="close-j-s1">
+                X
+            </button>        
+        </div>
+        <h2 class="aside-h2">
+            Programar asignación:
+        </h2>
+        <form class="f-stage-1">     
+            <div class="caso-mariano">
+                <span>
+                    Cliente: Mariano
+                </span>
+                <span>
+                    Caso principal
+                </span>
+            </div>      
+            <label>
+                <span> Asignar a:</span>
+                <select id="select-caso-mariano">
+                    <option value="e-1">
+                        Ana María
+                    </option>
+                    <option value="e-2">
+                        Aylén
+                    </option>
+                </select>
+            </label>
+            <div class="caso-mariano">
+                <span>
+                    Cliente: David
+                </span>
+                <span>
+                    Caso secundario
+                </span>
+            </div>      
+            <label>
+                <span> Asignar a:</span>
+                <select id="select-caso-david">
+                    <option value="e-1">
+                        Ana María
+                    </option>
+                    <option value="e-2">
+                        Aylén
+                    </option>
+                </select>
+            </label>
+            <label for="envio-f-s1"></label>
+            <input id="envio-f-s1" type="submit" value="Iniciar jornada">               
+        </form>
+        <form class="f-stage-2">
+            <div class="caso-mariano">
+                <span>
+                    Cliente: Mariano
+                </span>
+                <span>
+                    Caso principal
+                </span>
+            </div>      
+            <label>
+                <span> Asignar a:</span>
+                <select id="select-caso-mariano">
+                    <option value="e-1">
+                        Ana María
+                    </option>
+                    <option value="e-2">
+                        Aylén
+                    </option>
+                </select>
+            </label>
+            <div class="caso-mariano">
+                <span>
+                    Cliente: David
+                </span>
+                <span>
+                    Caso secundario
+                </span>
+            </div>      
+            <label>
+                <span> Asignar a:</span>
+                <select id="select-caso-david">
+                    <option value="e-1">
+                        Ana María
+                    </option>
+                    <option value="e-2">
+                        Aylén
+                    </option>
+                </select>
+            </label>
+            <label for="envio-f-s1"></label>
+            <input id="envio-f-s1" type="submit" value="Iniciar jornada">
+        </form>
+        <form class="f-stage-3">
+            <div class="caso-mariano">
+                <span>
+                    Cliente: Mariano
+                </span>
+                <span>
+                    Caso principal
+                </span>
+            </div>      
+            <label>
+                <span> Asignar a:</span>
+                <select id="select-caso-mariano">
+                    <option value="e-1">
+                        Ana María
+                    </option>
+                    <option value="e-2">
+                        Aylén
+                    </option>
+                </select>
+            </label>
+            <div class="caso-mariano">
+                <span>
+                    Cliente: David
+                </span>
+                <span>
+                    Caso secundario
+                </span>
+            </div>      
+            <label>
+                <span> Asignar a:</span>
+                <select id="select-caso-david">
+                    <option value="e-1">
+                        Ana María
+                    </option>
+                    <option value="e-2">
+                        Aylén
+                    </option>
+                </select>
+            </label>
+            <label for="envio-f-s1"></label>
+            <input id="envio-f-s1" type="submit" value="Iniciar jornada">
+        </form>
+    </aside>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="./js/dialogos.js"></script>
     <script src="js/index.js"></script>
