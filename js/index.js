@@ -15,6 +15,8 @@ const exit = document.querySelector('.exit');
 // Elementos
 const cuerpo = document.body;
 const preloader = document.querySelector(".preloader");
+const page = document.querySelector('.page');
+const sonidoTablas = document.querySelector('.sonidoTablas');
 
 // Pestañas
 const menu = document.querySelector('#main-menu');
@@ -30,6 +32,7 @@ const tablero = document.querySelector('#interfaz-tablas');
 // Botón para empezar una nueva partida
 start.addEventListener('click', () => {
     overlay.classList.add('fadeIn');
+    page.play();
     setTimeout(function(){
         mainMenu.style.display = 'none';
         tablero.style.display = 'flex';
@@ -39,11 +42,13 @@ start.addEventListener('click', () => {
     }, 1000)
     setTimeout(function(){
         overlay.classList.remove('fadeOut');
+        sonidoTablas.play()
     }, 2000)
 });
 
 settings.addEventListener('click', () => {
     overlay.classList.add('fadeIn');
+    page.play();
     setTimeout(function(){
         inicio.style.display = 'none';
         configuracion.style.display = 'block';
@@ -59,6 +64,7 @@ settings.addEventListener('click', () => {
 // Botón para volver hacia atrás
 back.addEventListener('click', (event) => {
     event.preventDefault();
+    page.play();
     overlay.classList.add('fadeIn');
     setTimeout(function(){
         inicio.style.display = 'block';
@@ -72,6 +78,10 @@ back.addEventListener('click', (event) => {
     }, 2000)
 });
 
+
+
+
+
 // Volumen Modal
 const audio = document.querySelector('.audio');
 const modalContainer = document.querySelector('.modal__container');
@@ -79,6 +89,7 @@ const modal = document.querySelector('.modal');
 const playButton = document.querySelector('.play-music');
 const stopButton = document.querySelector('.stop-music');
 
+audio.play();
 if (!localStorage.getItem('modalActive')) {
     modalContainer.style.display = 'block';
 
@@ -95,8 +106,6 @@ if (!localStorage.getItem('modalActive')) {
     });
 
     localStorage.setItem('modalActive', true);
-} else {
-    modalContainer.style.display = 'none';
 }
 
 // Preloader
@@ -180,7 +189,17 @@ const jornada = document.querySelector(".jornada");
 jornada.addEventListener('click', empezarJornada);
 
 function empezarJornada() {
-    window.location.href = 'novela.html';
+    overlay.classList.add('fadeIn');
+    page.play();
+    setTimeout(function(){
+        window.location.href = 'novela.html';
+
+        overlay.classList.remove('fadeIn');
+        overlay.classList.add('fadeOut');
+    }, 1000)
+    setTimeout(function(){
+        overlay.classList.remove('fadeOut');
+    }, 2000)
 }
 
 

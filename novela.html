@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="novela.css">
-    
-    <title>boton</title>
+    <link rel="icon" href="assets/libreta.ico">
+    <title>Novela</title>
 </head>
 <body class="body">
+    <div class="overlay"></div>
+    <audio class="sonidoEnojado" src="audio/SFX/enojado.mp3"></audio>
+    <audio class="sonidoMejor" src="audio/SFX/mejor.mp3"></audio>
+    <audio class="sonidoPeor" src="audio/SFX/peor.mp3"></audio>
+    <audio class="sonidoNovela" src="audio/novela.mp3"></audio>
     <div class="overlay"></div>
     <div class="novela">
         <div class="img-empleadas">
@@ -33,11 +38,9 @@
             <button class="backTablas">Volver al tablero</button>
             <button class="button anterior">Anterior</button>
             <button class="button siguiente">Siguiente</button>
-            <button class="button settings">Opciones</button>
         </div>
     </div>
     <script src="./js/dialogos.js"></script>
-    <!-- <script src="novela.js"></script> -->
     <script src="./js/visualNovel.js"></script>
 </body>
 </html>

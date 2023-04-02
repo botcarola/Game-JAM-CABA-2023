@@ -21,6 +21,29 @@
     margin: 0;
     height: 100vh;
     width: 100vw;
+
+    background-image: url('assets/fondo/stage1/neutral.png');
+    background-position: center center;
+}
+
+.neutral {
+    background-image: url('assets/fondo/stage1/neutral.png');
+}
+
+.enojado {
+    background-image: url('assets/fondo/stage1/enojado.png');
+}
+
+.mejor {
+    background-image: url('assets/fondo/stage1/mejor.png');
+}
+
+.peor {
+    background-image: url('assets/fondo/stage1/peor.png');
+}
+
+.triste {
+    background-image: url('assets/fondo/stage1/triste.png');
 }
 
 .body::before {
@@ -30,13 +53,8 @@
     width: 100%;
     height: 100%;
     content: '';
-    background-image: url('img/fondo.png');
-    background-position: center center;
-    background-size: cover;
-    filter: blur(3px);
     z-index: -10;
 }
-
 
 /* Novela */
 .novela {
@@ -262,6 +280,54 @@
 
 /* Efectos */
 
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fadeLoad {
+    animation: moveFadeInicio 1s forwards;
+}
+
+.fadeIn {
+    z-index: 99999999;
+    animation: moveFadeIn 1s forwards;
+}
+
+.fadeOut {
+    z-index: 99999999;
+    animation: moveFadeOut 1s forwards;
+}
+
+.index {
+    z-index: 0;
+}
+
+@keyframes moveFadeInicio {
+    to {opacity: 0;}
+
+    from {opacity: 1;}
+}
+
+@keyframes moveFadeIn {
+    from { background-color: transparent;}
+
+    to { background-color: #000;}
+}
+
+@keyframes moveFadeOut {
+    from { background-color: #000;}
+
+    to { background-color: transparent;}
+}
+
+
+
+
+/* Fade */
 .overlay {
     position: absolute;
     top: 0;
