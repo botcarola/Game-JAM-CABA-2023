@@ -52,13 +52,8 @@ const verificarTipoDeDialogo = valor => {
 }
 
 
-
-
-// document.querySelector(".iniciar").addEventListener('click', () => {
-//     botones.style.visibility = "visible"
-// });
-
 const verificarIndice = ( i, array, e ) => {
+    sonidoNovela.play()
     if ( e.target.className.includes("siguiente") || e.target.className.includes("respuesta") || e.target.className.includes("iniciar")) {
         document.querySelector(".iniciar").style.display = "none"
         // anterior.style.visibility = "visible"
@@ -66,7 +61,8 @@ const verificarIndice = ( i, array, e ) => {
         const longitudArray = array.length 
         verificarTipoDeDialogo( array[i].value )
 
-        if ( indice == longitudArray ) {            
+        if ( indice == longitudArray ) {  
+            document.querySelector('.backTablas').style.display = "block"          
             document.querySelector(".siguiente").style.display = "none"
         }      
     }
@@ -120,10 +116,7 @@ const validarDecisiones = ( i, array , e) => {
         cont++;
         console.log(cont)
     }
-    if (cont === 3){
-        document.querySelector('.backTablas').style.display = "block"
-        console.log(cont)
-    }
+    
 }
 
 document.onclick = e => {

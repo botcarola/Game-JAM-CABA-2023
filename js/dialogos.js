@@ -8,7 +8,7 @@ const empleadasAgencia = [
         descripcion: "Es venezolana, de 42 años, casada hace 20 años, con 2 hijos. Se recibió hace años de psicóloga, pero jamás ejerció porque decidió quedarse en casa a criarlos. Ahora que ya han crecido, desea comenzar su profesión y aportar al hogar económicamente. Su sueño es comprarse una casa.",
         atributos: [  "Paciente" ],
         fase: 1,
-        avatar: "/../assets/avatares/anamaria.jpg",
+        avatar: "anamaria.jpg",
         staff: true
     },
     {
@@ -18,7 +18,7 @@ const empleadasAgencia = [
         descripcion: "Proviene de una familia de clase baja, por lo que al terminar la secundaria tuvo que comenzar a trabajar. Tiene 28 años. Siempre disfrutó mucho de dialogar con la gente y contribuir con el bienestar barrial participando en diversas actividades. Comenzó a estudiar una  Licenciatura en Trabajo Social a sus 20, pero debido al poco tiempo que puede dedicarle a su carrera, se encuentra cursando su tercer año. Su sueño es recibirse.",
         atributos: [  "Empática" ],
         fase: 1,
-        avatar: "/../assets/avatares/aylen.jpg",
+        avatar: "aylen.jpg",
         staff: true
     },
     {
@@ -81,7 +81,7 @@ const clientesAgencia = [
         descripcion: "Tiene 36 años y es taxista. Su única familia es su hermana, una conocida de Aylén, que logró convencerlo de que se acercara a la clínica (agencia). Es un padre divorciado, que si bien paga la cuota de alimentos, se niega a ver a su hija, porque su exmujer no le permite llevarsela de la casa. Quiere mantener una relación con la niña, pero no sabe cómo hacerlo ante esta situación.",
         atributos: [ "Egoísta" ],
         fase: 1,
-        avatar: "/../assets/avatares/mariano.jpg",        
+        avatar: "mariano.jpg",        
     },
     {
         id: 1,
@@ -90,7 +90,7 @@ const clientesAgencia = [
         descripcion: "Tiene 18 años. Trabaja en el negocio de su padre y lleva 3 años en pareja con su novia. Durante su paso por la secundaria, se veían y mensajeaban a diario. Sin embargo, al comenzar la universidad, su novia dejó de verlo tan seguido y ya no le contesta los mensajes con la frecuencia de antes. David teme que su pareja lo esté engañando y no sabe si dejarla o no.",
         atributos: [ "Ansioso" ],
         fase: 1,
-        avatar: "/../assets/avatares/david.jpg",        
+        avatar: "david.jpg",        
     },
     {
         id: 2,

@@ -74,6 +74,7 @@ start.addEventListener('click', () => {
         overlay.classList.remove('fadeOut');
         sonidoTablas.play()
     }, 2000)
+    audio.pause()
     
 });
 
